@@ -1,0 +1,97 @@
+{
+  "productId": "residencial",
+  "productName": "Seguro Residencial",
+  "commonFields": [
+    {
+      "id": "nome",
+      "type": "text",
+      "label": "Nome Completo",
+      "placeholder": "Digite seu nome completo",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "message": "Nome deve ter pelo menos 3 caracteres"
+      }
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "E-mail",
+      "placeholder": "seu@email.com",
+      "required": true
+    },
+    {
+      "id": "telefone",
+      "type": "text",
+      "label": "Telefone",
+      "placeholder": "(00) 00000-0000",
+      "mask": "(99) 99999-9999",
+      "required": true
+    }
+  ],
+  "specificFields": [
+    {
+      "id": "cep",
+      "type": "text",
+      "label": "CEP",
+      "placeholder": "00000-000",
+      "mask": "99999-999",
+      "required": true,
+      "validation": {
+        "pattern": "^[0-9]{5}-[0-9]{3}$",
+        "message": "CEP inválido"
+      }
+    },
+    {
+      "id": "tipoImovel",
+      "type": "select",
+      "label": "Tipo de Imóvel",
+      "placeholder": "Selecione o tipo",
+      "required": true,
+      "options": [
+        { "value": "casa", "label": "Casa" },
+        { "value": "apartamento", "label": "Apartamento" },
+        { "value": "sobrado", "label": "Sobrado" },
+        { "value": "kitnet", "label": "Kitnet" },
+        { "value": "cobertura", "label": "Cobertura" }
+      ]
+    },
+    {
+      "id": "areaTotal",
+      "type": "text",
+      "label": "Área Total (m²)",
+      "placeholder": "150",
+      "required": true,
+      "validation": {
+        "pattern": "^[0-9]+$",
+        "message": "Digite apenas números"
+      }
+    },
+    {
+      "id": "possuiAlarme",
+      "type": "radio",
+      "label": "Possui alarme?",
+      "required": true,
+      "options": [
+        { "value": "sim", "label": "Sim" },
+        { "value": "nao", "label": "Não" }
+      ]
+    },
+    {
+      "id": "tipoAlarme",
+      "type": "select",
+      "label": "Tipo de Alarme",
+      "placeholder": "Selecione o tipo",
+      "required": true,
+      "options": [
+        { "value": "monitorado", "label": "Monitorado 24h" },
+        { "value": "sonoro", "label": "Apenas Sonoro" }
+      ],
+      "showIf": {
+        "field": "possuiAlarme",
+        "equals": "sim"
+      }
+    }
+  ],
+  "offersEndpoint": "/offers/residencial"
+}

@@ -1,0 +1,117 @@
+{
+  "productId": "auto",
+  "productName": "Seguro Auto",
+  "commonFields": [
+    {
+      "id": "nome",
+      "type": "text",
+      "label": "Nome Completo",
+      "placeholder": "Digite seu nome completo",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "message": "Nome deve ter pelo menos 3 caracteres"
+      }
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "E-mail",
+      "placeholder": "seu@email.com",
+      "required": true
+    },
+    {
+      "id": "telefone",
+      "type": "text",
+      "label": "Telefone",
+      "placeholder": "(00) 00000-0000",
+      "mask": "(99) 99999-9999",
+      "required": true
+    }
+  ],
+  "specificFields": [
+    {
+      "id": "cnh",
+      "type": "text",
+      "label": "CNH",
+      "placeholder": "Número da CNH",
+      "required": true,
+      "validation": {
+        "minLength": 11,
+        "maxLength": 11,
+        "message": "CNH deve ter 11 dígitos"
+      }
+    },
+    {
+      "id": "placa",
+      "type": "text",
+      "label": "Placa do Veículo",
+      "placeholder": "ABC-1234",
+      "mask": "AAA-9A99",
+      "required": true,
+      "validation": {
+        "pattern": "^[A-Z]{3}-[0-9][A-Z0-9][0-9][0-9]$",
+        "message": "Placa inválida"
+      }
+    },
+    {
+      "id": "marca",
+      "type": "select",
+      "label": "Marca",
+      "placeholder": "Selecione a marca",
+      "required": true,
+      "loadOptions": {
+        "endpoint": "/vehicles/brands"
+      }
+    },
+    {
+      "id": "modelo",
+      "type": "select",
+      "label": "Modelo",
+      "placeholder": "Selecione o modelo",
+      "required": true,
+      "dependsOn": "marca",
+      "loadOptions": {
+        "endpoint": "/vehicles/models",
+        "params": ["marca"]
+      }
+    },
+    {
+      "id": "anoFabricacao",
+      "type": "text",
+      "label": "Ano de Fabricação",
+      "placeholder": "2020",
+      "required": true,
+      "validation": {
+        "pattern": "^(19|20)\\d{2}$",
+        "message": "Ano inválido"
+      }
+    },
+    {
+      "id": "possuiRastreador",
+      "type": "radio",
+      "label": "Possui rastreador?",
+      "required": true,
+      "options": [
+        { "value": "sim", "label": "Sim" },
+        { "value": "nao", "label": "Não" }
+      ]
+    },
+    {
+      "id": "tipoRastreador",
+      "type": "select",
+      "label": "Tipo de Rastreador",
+      "placeholder": "Selecione o tipo",
+      "required": true,
+      "options": [
+        { "value": "bloqueador", "label": "Com Bloqueador" },
+        { "value": "localizador", "label": "Apenas Localizador" }
+      ],
+      "showIf": {
+        "field": "possuiRastreador",
+        "equals": "sim"
+      }
+    }
+  ],
+  "offersEndpoint": "/offers/auto"
+}
