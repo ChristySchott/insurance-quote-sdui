@@ -1,0 +1,40 @@
+{
+  "name": "@insurance-quote/web",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,json,css}\"",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@insurance-quote/shared": "workspace:*",
+    "@tanstack/react-query": "^5.17.9",
+    "@tanstack/react-router": "^1.132.25",
+    "react-hook-form": "^7.49.0",
+    "@hookform/resolvers": "^3.3.0",
+    "zod": "^3.22.0",
+    "axios": "^1.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@insurance-quote/eslint-config": "workspace:*",
+    "@insurance-quote/prettier-config": "workspace:*",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^5.0.3",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.3.3",
+    "vite": "^7.1.7",
+    "@tanstack/router-plugin": "^1.132.25",
+    "@tanstack/eslint-plugin-query": "^5.91.0"
+  }
+}
